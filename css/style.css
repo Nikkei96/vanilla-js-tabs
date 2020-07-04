@@ -152,7 +152,7 @@ header ul li:before {
 }
 .content {
   width: 100%;
-  min-height: 3200px;
+  min-height: 700px;
   background: url(../img/main_bg.jpg);
   background-position: 50% 30%;
 }
