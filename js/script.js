@@ -1,37 +1,37 @@
-window.addEventListener('DOMContentLoaded', function() {
-    'use strict';
-     
-    let info = document.querySelector(".info-header"),
-        tab = document.querySelectorAll(".info-header-tab"),
-        tabContent = document.querySelectorAll(".info-tabcontent");
+window.addEventListener('load', function () {
 
+    // наши табы
+    var tabs = document.querySelectorAll("a.info-header-tab");
 
-    function hideTabContent(a) {
-        for (let i = a; i < tabContent.length; i++) {
-            tabContent[i].classList.remove('show');
-            tabContent[i].classList.add('hide');
+    function EventTabs(clickEvent) {
+
+        // очищаем active tab
+        for (let i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove("active");
         }
+
+        // добавляем к нажатому табу active
+        let clickedTab = clickEvent.currentTarget
+        clickedTab.classList.add("active")
+        clickEvent.preventDefault()
+
+        // наш контент
+        let tabContent = document.querySelectorAll(".info-tabcontent")
+
+        // устанавливаем tab-content active
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].classList.remove("active")
+        }
+
+        // устанавливаем tab active
+        let anchor = clickEvent.target,
+            activeLink = anchor.getAttribute("href"),
+            activeTab = document.querySelector(activeLink)
+        activeTab.classList.add("active")
     }
 
-    hideTabContent(1);
-
-    function showTabContent(b) {
-        if (tabContent[b].classList.contains('hide')) {
-            tabContent[b].classList.remove('hide');
-            tabContent[b].classList.add('show');
-        }
+    // event click tabs
+    for (i = 0; i < tabs.length; i++) {
+        tabs[i].addEventListener("click", EventTabs)
     }
-
-    info.addEventListener('click', function(event) {
-        let target = event.target;
-        if (target && target.classList.contains('info-header-tab')) {
-            for (let i = 0; i < tab.length; i++) {
-                if (target == tab[i]) {
-                    hideTabContent(0);
-                    showTabContent(i);
-                    break;
-                }
-            }
-        }
-    });
-});
+})
