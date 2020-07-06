@@ -1,13 +1,13 @@
 window.addEventListener('load', function () {
 
-    // наши табы
-    var tabs = document.querySelectorAll("a.info-header-tab");
+    // кнопки
+    var tabs = document.querySelectorAll("a.info-header-tab")
 
     function EventTabs(clickEvent) {
 
         // очищаем active tab
-        for (let i = 0; i < tabs.length; i++) {
-            tabs[i].classList.remove("active");
+        for (i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove("active")
         }
 
         // добавляем к нажатому табу active
