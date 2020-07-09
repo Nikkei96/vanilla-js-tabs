@@ -18,4 +18,6 @@
 Обработчик события click по элементу блока info ищет дочерние элементы с классом `.info-header-tab` и если `target` совпадает с `tab[i]`, то выполянется функция скрытия всех табов `hideTabContent(0)` и затем функция показа конкретного таба `showTabContent(i)`.
 
 
-<div style="text-align:center"><img src="/img/katana.png" alt ="Katana"></div>
+<p align="center">
+  <img src="./img/katana.png" />
+</p>
